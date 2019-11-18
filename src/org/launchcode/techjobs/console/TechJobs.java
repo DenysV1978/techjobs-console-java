@@ -60,6 +60,7 @@ public class TechJobs {
                 // What is their search term?
                 System.out.println("\nSearch term: ");
                 String searchTerm = in.nextLine();
+                searchTerm = searchTerm.toLowerCase();
 
                 if (searchField.equals("all")) {
                     System.out.println("Search all fields not yet implemented.");
@@ -116,6 +117,10 @@ public class TechJobs {
             for(Map.Entry<String, String> position : someJobs.get(i).entrySet()) {
                 System.out.println(position.getKey()+": "+ position.getValue());
             }
+        };
+
+        if(someJobs.size()==0) {
+            System.out.println("No output available");
         }
 
     };
