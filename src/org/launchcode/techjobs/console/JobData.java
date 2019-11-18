@@ -124,6 +124,27 @@ public class JobData {
             System.out.println("Failed to load job data");
             e.printStackTrace();
         }
+    };
+
+    public static ArrayList<HashMap<String, String>> findByValue(String value) {
+        loadData();
+
+
+        ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
+
+
+        for(HashMap<String, String> position : allJobs) {
+
+
+            for(String keyValue : position.values()) {
+                keyValue = keyValue.toLowerCase();
+                if(keyValue.contains(value)) {
+                    jobs.add(position);
+                    break;
+                }
+            }
+        }
+        return jobs;
     }
 
 }
